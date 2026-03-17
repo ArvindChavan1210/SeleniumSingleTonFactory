@@ -1,0 +1,32 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="tests" thread-count="2">
+
+    <listeners>
+        <listener class-name="listeners.TestNgListners"/>
+    </listeners>
+
+    <test name="ChromeTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="testMethods.FirstTest">   <!-- open tag! -->
+                <methods>
+                    <include name="validateBlankFieldValidations"/>
+                    <include name="validateWrongUserNameOrPassword"/>
+                    <include name="loginUsingCorrectCredentials"/>
+                </methods>
+            </class>                               <!-- close here! -->
+        </classes>
+    </test>
+
+    <!-- Firefox test disabled — uncomment to enable -->
+    <!--
+    <test name="FirefoxTest">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="testMethods.FirstTest"/>
+        </classes>
+    </test>
+    -->
+
+</suite>
