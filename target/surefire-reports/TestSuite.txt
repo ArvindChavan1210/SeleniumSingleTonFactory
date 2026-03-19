@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 12.055 s <<< FAILURE! - in TestSuite
+testMethods.FirstTest.validateBlankFieldValidations  Time elapsed: 1.074 s  <<< FAILURE!
+java.lang.AssertionError: Validation Message is not displayed expected [null] but found [*Email is required]
+	at testMethods.FirstTest.validateBlankFieldValidations(FirstTest.java:19)
+

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-03-19T15:30:07 IST" name="Suite" finished-at="2026-03-19T15:30:18 IST" duration-ms="11091">
+    <groups>
+    </groups>
+    <test started-at="2026-03-19T15:30:07 IST" name="ChromeTest" finished-at="2026-03-19T15:30:18 IST" duration-ms="11091">
+      <class name="testMethods.FirstTest">
+        <test-method is-config="true" signature="suiteSetup()[pri:0, instance:testMethods.FirstTest@5e0826e7]" started-at="2026-03-19T15:30:07 IST" name="suiteSetup" finished-at="2026-03-19T15:30:07 IST" duration-ms="233" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteSetup -->
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:testMethods.FirstTest@5e0826e7]" started-at="2026-03-19T15:30:07 IST" name="setUp" finished-at="2026-03-19T15:30:08 IST" duration-ms="1479" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="validateBlankFieldValidations()[pri:1, instance:testMethods.FirstTest@5e0826e7]" started-at="2026-03-19T15:30:08 IST" name="validateBlankFieldValidations" description="Validate login with fields &amp; check validation message" finished-at="2026-03-19T15:30:09 IST" duration-ms="1079" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Validation Message is not displayed expected [null] but found [*Email is required]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Validation Message is not displayed expected [null] but found [*Email is required]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotSame(Assert.java:1586)
+at org.testng.Assert.assertNull(Assert.java:1519)
+at testMethods.FirstTest.validateBlankFieldValidations(FirstTest.java:19)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:842)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateBlankFieldValidations -->
+        <test-method is-config="true" signature="TearDown()[pri:0, instance:testMethods.FirstTest@5e0826e7]" started-at="2026-03-19T15:30:10 IST" name="TearDown" finished-at="2026-03-19T15:30:10 IST" duration-ms="347" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:testMethods.FirstTest@5e0826e7]" started-at="2026-03-19T15:30:10 IST" name="setUp" finished-at="2026-03-19T15:30:11 IST" duration-ms="998" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="validateWrongUserNameOrPassword()[pri:2, instance:testMethods.FirstTest@5e0826e7]" started-at="2026-03-19T15:30:11 IST" name="validateWrongUserNameOrPassword" description="Validate login security for wrong username and password" finished-at="2026-03-19T15:30:14 IST" duration-ms="2440" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateWrongUserNameOrPassword -->
+        <test-method is-config="true" signature="TearDown()[pri:0, instance:testMethods.FirstTest@5e0826e7]" started-at="2026-03-19T15:30:14 IST" name="TearDown" finished-at="2026-03-19T15:30:14 IST" duration-ms="237" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:testMethods.FirstTest@5e0826e7]" started-at="2026-03-19T15:30:14 IST" name="setUp" finished-at="2026-03-19T15:30:15 IST" duration-ms="986" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="loginUsingCorrectCredentials()[pri:3, instance:testMethods.FirstTest@5e0826e7]" started-at="2026-03-19T15:30:15 IST" name="loginUsingCorrectCredentials" description="Validate login with correct username and password" finished-at="2026-03-19T15:30:18 IST" duration-ms="2518" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginUsingCorrectCredentials -->
+        <test-method is-config="true" signature="TearDown()[pri:0, instance:testMethods.FirstTest@5e0826e7]" started-at="2026-03-19T15:30:18 IST" name="TearDown" finished-at="2026-03-19T15:30:18 IST" duration-ms="252" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+        <test-method is-config="true" signature="suiteTearDown()[pri:0, instance:testMethods.FirstTest@5e0826e7]" started-at="2026-03-19T15:30:18 IST" name="suiteTearDown" finished-at="2026-03-19T15:30:18 IST" duration-ms="242" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteTearDown -->
+      </class> <!-- testMethods.FirstTest -->
+    </test> <!-- ChromeTest -->
+  </suite> <!-- Suite -->
+</testng-results>

@@ -1,0 +1,4 @@
+abstractMethods\AbstractClass.class
+utilities\ScreenShotsUtility.class
+pageObjects\LoginPage.class
+utilities\PropertiesReader.class
