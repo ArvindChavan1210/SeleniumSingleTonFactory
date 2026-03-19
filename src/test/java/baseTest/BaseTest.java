@@ -7,36 +7,39 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
-import listeners.ExtentReportsManager;
+import listeners.ExtentManager;
 import pageObjects.LoginPage;
+import utilities.PropertiesReader;
 
 public class BaseTest {
 
-	private WebDriver driver;
+	private static WebDriver driver;
 	public static LoginPage loginPage;
+	protected static String UserName;
+	protected static String password;
 	
-	  @BeforeSuite
-	  
-	    public void suiteSetup() {
-	        ExtentReportsManager.setupReports();      // init ONCE for entire suite
-	    }
+	@BeforeSuite
+	public void setUpExtent() {
+		ExtentManager.setupReport();
+	}
 
 	@Parameters("browser")
-	@BeforeMethod(alwaysRun = true)
-	public void setUp(String browser) {
-		System.out.println("Broweser:"+browser);
-		DriverManager.setDriver(DriverFactory.loadDriver(browser));
+	@BeforeMethod
+	public void setup(String browser){
+		DriverManager.setDriver(DriverFactory.loadBrowser(browser));
 		driver = DriverManager.getDriver();
-		
+		goTo(PropertiesReader.getProperty("config", "url"));
+		UserName = PropertiesReader.getProperty("config", "username");
+		password = PropertiesReader.getProperty("config", "password");
 	}
 
 	public void goTo(String url) {
 		driver.get(url);
-		loginPage = new LoginPage(driver);
+		loginPage=new LoginPage(driver);
 	}
 
 	@AfterMethod
-	public void TearDown() {
+	public void tearDown() {
 		if (driver != null) {
 			driver.quit();
 		}
@@ -44,7 +47,8 @@ public class BaseTest {
 	}
 	
 	@AfterSuite
-    public void suiteTearDown() {
-        ExtentReportsManager.flushReport();     // MUST flush — writes HTML!
-    }
+	public void flushExtent() {
+		ExtentManager.flushReport();
+	}
+
 }

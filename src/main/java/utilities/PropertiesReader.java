@@ -2,30 +2,34 @@ package utilities;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Properties;
 
 public class PropertiesReader {
 
-	public static String getProperties(String fileName, String propertyName) {
-		String filePath = System.getProperty("user.dir") + "\\src\\main\\java\\resources\\" + fileName.toLowerCase()
+	public static String getProperty(String fileName, String requiredProperty) {
+
+		String filePath = System.getProperty("user.dir") + "\\src\\main\\java\\Resources\\" + fileName.toLowerCase()
 				+ ".properties";
-		String property = null;
-
 		try {
-			
 			File f = new File(filePath);
+			FileInputStream fis = new FileInputStream(f);
 			Properties pr = new Properties();
-			pr.load(new FileInputStream(f));
-			property = pr.getProperty(propertyName).toString();
+			pr.load(fis);
 
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			return pr.get(requiredProperty).toString();
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		return property;
+		return null;
 	}
 
 	public static void main(String[] args) {
-		System.out.println(getProperties("config", "url"));
+		getProperty("config123", null);
 	}
 
 }

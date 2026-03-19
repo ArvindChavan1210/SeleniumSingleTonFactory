@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="tests" thread-count="2">
 
     <listeners>
-        <listener class-name="listeners.TestNgListners"/>
+        <listener class-name="listeners.TestNGListners"/>
     </listeners>
 
     <test name="ChromeTest">
@@ -11,9 +11,10 @@
         <classes>
             <class name="testMethods.FirstTest">   <!-- open tag! -->
                 <methods>
-                    <include name="validateBlankFieldValidations"/>
-                    <include name="validateWrongUserNameOrPassword"/>
-                    <include name="loginUsingCorrectCredentials"/>
+                    <include name="validate_blank_field_validation_message"/>
+            		<include name="validate_login_feature_with_wrong_userpassword"/>
+            		<include name="validate_login_feature_with_valid_credentials"/>
+            		<include name="validate_dashboardPage_item_List"/>
                 </methods>
             </class>                               <!-- close here! -->
         </classes>

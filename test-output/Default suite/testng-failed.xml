@@ -5,9 +5,11 @@
     <classes>
       <class name="testMethods.FirstTest">
         <methods>
-          <include name="TearDown"/>
-          <include name="validateBlankFieldValidations"/>
-          <include name="setUp"/>
+          <include name="flushExtent"/>
+          <include name="setUpExtent"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="validate_blank_field_validation_message"/>
         </methods>
       </class> <!-- testMethods.FirstTest -->
     </classes>

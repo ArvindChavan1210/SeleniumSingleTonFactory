@@ -1,5 +1,7 @@
 package baseTest;
 
+import static org.testng.Assert.assertThrows;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,22 +12,22 @@ public class DriverFactory {
 
 	private static WebDriver driver;
 
-	public static WebDriver loadDriver(String browser) {
-		switch (browser.toLowerCase()) {
+	public static WebDriver loadBrowser(String browsername) {
+		switch (browsername.toLowerCase()) {
 		case "chrome":
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--disable-popup-blocking");
-			driver = new ChromeDriver(options);
+			ChromeOptions chromeoptions = new ChromeOptions();
+			chromeoptions.addArguments("--disable-popup-blocking");
+			driver = new ChromeDriver(chromeoptions);
 			driver.manage().window().maximize();
 			return driver;
 		case "firefox":
-			FirefoxOptions options1 = new FirefoxOptions();
-			options1.addArguments("--disable-popup-blocking");
+			FirefoxOptions firefoxoptions = new FirefoxOptions();
+			firefoxoptions.addArguments("--disable-popup-blocking");
 			driver = new FirefoxDriver();
 			driver.manage().window().maximize();
 			return driver;
 		default:
-			return null;
+			throw new RuntimeException("Invalid browser");
 		}
 	}
 

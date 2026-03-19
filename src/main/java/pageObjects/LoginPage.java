@@ -1,59 +1,53 @@
 package pageObjects;
 
-import java.util.List;
-
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import abstractMethods.AbstractClass;
+import utilities.JSExecutor;
 
 public class LoginPage extends AbstractClass {
 
-	ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
+	private static WebDriver driver;
+	public static DashBoardPage dashBoardPage;
 
-	public LoginPage(WebDriver webDriver) {
-		super(webDriver);
-		driver.set(webDriver);
-		PageFactory.initElements(webDriver, this);
+	public LoginPage(WebDriver driver) {
+		super(driver);
+		LoginPage.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
 
+	@FindBy(id = "login")
+	private static WebElement loginButton;
 	@FindBy(id = "userEmail")
-	private WebElement username;
+	private static WebElement userNameField;
 	@FindBy(id = "userPassword")
-	private WebElement password;
-	@FindBy(name = "login")
-	private WebElement LoginButton;
-	@FindBy(className = "invalid-feedback")
-	private List<WebElement> blankfieldValidation;
+	private static WebElement userPassword;
 	@FindBy(css = ".ng-trigger-flyInOut")
-	private List<WebElement> toastContainer;
+	private static WebElement toastContainer;
 
-	public String performLogin(String name, String pass) {
-		waitForElementClickable(LoginButton);
-		username.sendKeys(name);
-		password.sendKeys(pass);
-		LoginButton.click();
+	public String blankFieldMessage() {
 
-		waitForVisibilityofAllElements(toastContainer);
+		waitUntilElementClickable(loginButton);
+		loginButton.click();
+		WebElement lo = waitUntilLocatorVisible(By.cssSelector(".invalid-feedback"));
+		JSExecutor.heighLightWebElement(driver, lo);
+		return lo.getText();
 
-		if (!toastContainer.isEmpty()) {
-			return toastContainer.get(0).getText();
-		}
-		return null;
 	}
 
-	public String blankFieldValidation() {
-		waitForElementClickable(LoginButton);
-		username.sendKeys("");
-		password.sendKeys("");
-		LoginButton.click();
-		waitForVisibilityofAllElements(blankfieldValidation);
-		if (!blankfieldValidation.isEmpty()) {
-			return blankfieldValidation.get(0).getText();
-		}
-		return null;
+	public static String login(String user, String pass) {
+		waitUntilElementClickable(loginButton);
+		userNameField.sendKeys(user);
+		waitUntilElementVisible(userPassword);
+		userPassword.sendKeys(pass);
+		loginButton.click();
+		dashBoardPage = new DashBoardPage(driver);
+		return waitUntilLocatorVisible(By.cssSelector(".ng-trigger-flyInOut")).getText();
+
 	}
 
 }

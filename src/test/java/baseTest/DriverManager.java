@@ -6,8 +6,8 @@ public class DriverManager {
 
 	private static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
 
-	public static void setDriver(WebDriver browserName) {
-		driver.set(browserName);
+	public static void setDriver(WebDriver browser) {
+		driver.set(browser);
 	}
 
 	public static WebDriver getDriver() {
